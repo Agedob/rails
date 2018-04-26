@@ -1,0 +1,16 @@
+<h1>Home sign up</h1><a href='/main/signin'><button>Sign in</button></a>
+
+<% if flash[:error] %>
+    <% flash[:error].each do |msg| %>
+    <h2 style='color:red; text-transform:capitalize;'><%= msg %></h2>
+    <% end %>
+<% end %>
+
+<form action='/proccess' method='post'>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<p>Name :<input type='text' name='form[name]'></p>
+<p>Email :<input type='text' name='form[email]'></p>
+<p>Password :<input type='text' name='form[password]'></p>
+<p>Password Confirmation :<input type='text' name='form[password_confirmation]'></p>
+<input type='submit'>
+</form>

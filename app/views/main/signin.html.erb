@@ -1,0 +1,14 @@
+<h1>Sign In</h1>
+<a href='/'><button>Home</button></a>
+<% if flash[:error] %>
+    <% flash[:error].each do |msg| %>
+    <h2 style='color:red; text-transform:capitalize;'><%= msg %></h2>
+    <% end %>
+<% end %>
+
+<form action='/signin' method='post'>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<p>Email :<input type='text' name='email'></p>
+<p>Password :<input type='text' name='password'></p>
+<input type='submit'>
+</form>
